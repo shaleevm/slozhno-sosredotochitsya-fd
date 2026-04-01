@@ -22,7 +22,7 @@
   min-block-size: 668px;
 }
 
-.header::before {
+.decorated-zone::before {
   content: '';
   position: absolute;
   top: 10px;
@@ -34,7 +34,7 @@
   block-size: 25px;
 }
 
-.header::after {
+.decorated-zone::after {
   content: '';
   position: absolute;
   bottom: 10px;
@@ -55,11 +55,13 @@
 .header__theme-menu-button {
   display: grid;
   border: none;
+  outline: 1px solid transparent;
   color: var(--nav-color);
   font-size: var(--main-font-size);
   line-height: 1;
   text-transform: lowercase;
   background-color: transparent;
+  transition: outline 0.5s ease-out;
   inline-size: 70px;
   block-size: 26px;
 }
@@ -70,7 +72,7 @@
 }
 
 .header__theme-menu-button:hover {
-  outline: 1px solid var(--menu-button-hover-color);
+  outline-color: var(--menu-button-hover-color);
 }
 
 .header__theme-menu-button:focus {
@@ -127,7 +129,7 @@
   top: 9px;
   left: 43px;
   border-radius: 50%;
-  box-shadow: 0 0 3px 3px currentColor;
+  box-shadow: 0 0 4px 2px currentColor;
   background-color: currentColor;
   inline-size: 7px;
   block-size: 7px;
@@ -177,6 +179,7 @@
 
 .text-link {
   text-decoration: none;
+  transition: border-bottom 1s ease-out;
 }
 
 .text-link:hover {
@@ -224,41 +227,17 @@
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border-inline-end: 1px solid var(--decor-color);
-  border-block-start: 1px solid var(--decor-color);
-  background-color: transparent;
-  inline-size: 25px;
-  block-size: 25px;
-}
-
-.footer::after {
-  content: '';
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  border-inline-start: 1px solid var(--decor-color);
-  border-block-end: 1px solid var(--decor-color);
-  background-color: transparent;
-  inline-size: 25px;
-  block-size: 25px;
-}
-
 @media (min-width: 768px) {
   .header {
     padding: calc(var(--main-padding) * 2) calc(var(--main-padding) * 2);
   }
 
-  .header::before {
+  .decorated-zone::before {
     top: 20px;
     right: 20px;
   }
 
-  .header::after {
+  .decorated-zone::after {
     bottom: 20px;
     left: 20px;
   }
@@ -349,16 +328,6 @@
   .image_street {
     grid-column: 2 / 4;
     grid-row: 3 / 4;
-  }
-
-  .footer::before {
-    top: 20px;
-    right: 20px;
-  }
-
-  .footer::after {
-    bottom: 20px;
-    left: 20px;
   }
 }
 
